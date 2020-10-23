@@ -1,4 +1,4 @@
-const CACHE_NAME = "pemuncak";
+const CACHE_NAME = "liga-inggris";
 var urlsToCache = [
   "/",
   "/manifest.json",
@@ -7,7 +7,7 @@ var urlsToCache = [
   "/css/materialize.min.css",
   "/js/materialize.min.js",
   "/js/api.js",
-  "/asset/logo.png"
+  "/assets/logo.png"
 ];
  
 self.addEventListener("install", function(event) {
@@ -19,20 +19,21 @@ self.addEventListener("install", function(event) {
 });
 
 self.addEventListener("fetch", function(event) {
-  event.respondWith(
-    caches
-    .match(event.request, { cacheName: CACHE_NAME })
-    .then(function(response) {
-      if (response) {
-        console.log("ServiceWorker: Gunakan aset dari cache: ", response.url);
-        return response;
-      }
-
-      console.log(
-        "ServiceWorker: Memuat aset dari server: ",
-        event.request.url
-      );
-      return fetch(event.request);
-    })
-  );
+  const base_url = "http://api.football-data.org/v2/competitions/2021/";
+  if (event.request.url.indexOf(base_url) > -1) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return fetch(event.request).then(function(response) {
+          cache.put(event.request.url, response.clone());
+          return response;
+        })
+      })
+    );
+  } else {
+    event.respondWith(
+      caches.match(event.request, { ignoreSearch: true }).then(function(response) {
+          return response || fetch (event.request);
+      })
+    )
+  }
 });
