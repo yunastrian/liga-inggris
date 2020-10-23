@@ -1,0 +1,16 @@
+{
+  "name": "Liga Inggris",
+  "short_name": "Liga Inggris",
+  "description": "Informasi terkait liga inggris",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#00897B",
+  "theme_color": "#00897B",
+  "icons": [
+    {
+      "src": "/asset/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
