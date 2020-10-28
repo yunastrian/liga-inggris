@@ -2,11 +2,16 @@ const CACHE_NAME = "liga-inggris";
 var urlsToCache = [
   "/",
   "/manifest.json",
+  "/nav.html",
   "/klasemen.html",
   "/index.html",
+  "/favorit.html",
   "/css/materialize.min.css",
   "/js/materialize.min.js",
   "/js/api.js",
+  "/js/nav.js",
+  "/js/favorit.js",
+  "/js/idb.js",
   "/assets/logo.png"
 ];
  
