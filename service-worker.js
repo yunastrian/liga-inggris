@@ -5,6 +5,7 @@ var urlsToCache = [
   "/nav.html",
   "/klasemen.html",
   "/index.html",
+  "/tentang.html",
   "/favorit.html",
   "/css/materialize.min.css",
   "/js/materialize.min.js",
@@ -26,7 +27,7 @@ self.addEventListener("install", function(event) {
 
 self.addEventListener("fetch", function(event) {
   const base_url = "http://api.football-data.org/v2/competitions/2021/";
-  if (event.request.url.indexOf(base_url) > -1) {
+  if (event.request.url.indexOf(base_url) >= -1) {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
         return fetch(event.request).then(function(response) {

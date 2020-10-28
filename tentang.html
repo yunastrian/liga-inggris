@@ -24,15 +24,18 @@
   <!-- Akhir Navigasi -->
   <div class="container" id="body-content">
     <div class="row">
-      <h1>Selamat Datang</h1>
-      <h4>Web ini berisi terkait liga inggris</h4>
-      <h4>Data diambil dari https://www.football-data.org/</h4>
+      <div class="col s12 m7" id="about">
+      </div>
     </div>
   </div>
   <script src="js/materialize.min.js"></script>
   <script src="js/api.js"></script>
   <script src="js/nav.js"></script>
   <script src="sw-register.js"></script>
-  <script src="js/notification.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      getAbout();
+    });
+  </script>
 </body>
 </html>
