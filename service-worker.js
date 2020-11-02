@@ -1,4 +1,4 @@
-importScripts('/js/workbox-sw.js');
+importScripts('./js/workbox-sw.js');
 
 if (workbox)
   console.log(`Workbox berhasil dimuat`);
@@ -8,31 +8,31 @@ else
 const CACHE_NAME = "liga-inggris";
 
 workbox.precaching.precacheAndRoute([
-  { url: '/manifest.json', revision: '1' },
-  { url: '/nav.html', revision: '1' },
-  { url: '/klasemen.html', revision: '1' },
-  { url: '/index.html', revision: '1' },
-  { url: '/tentang.html', revision: '1' },
-  { url: '/favorit.html', revision: '1' },
-  { url: '/css/materialize.min.css', revision: '1' },
-  { url: '/js/materialize.min.js', revision: '1' },
-  { url: '/js/api.js', revision: '1' },
-  { url: '/js/notification.js', revision: '1' },
-  { url: '/js/nav.js', revision: '1' },
-  { url: '/js/favorit.js', revision: '1' },
-  { url: '/js/idb.js', revision: '1' },
-  { url: '/assets/logo.png', revision: '1' },
+  { url: './manifest.json', revision: '1' },
+  { url: './nav.html', revision: '1' },
+  { url: './klasemen.html', revision: '1' },
+  { url: './index.html', revision: '1' },
+  { url: './tentang.html', revision: '1' },
+  { url: './favorit.html', revision: '1' },
+  { url: './css/materialize.min.css', revision: '1' },
+  { url: './js/materialize.min.js', revision: '1' },
+  { url: './js/api.js', revision: '1' },
+  { url: './js/notification.js', revision: '1' },
+  { url: './js/nav.js', revision: '1' },
+  { url: './js/favorit.js', revision: '1' },
+  { url: './js/idb.js', revision: '1' },
+  { url: './assets/logo.png', revision: '1' },
 ]);
 
 workbox.routing.registerRoute(
-  new RegExp('/'),
+  new RegExp('./'),
   workbox.strategies.staleWhileRevalidate({
 	  cacheName: CACHE_NAME
   })
 );
 
 self.addEventListener("fetch", function(event) {
-  const base_url = "http://api.football-data.org";
+  const base_url = "https://api.football-data.org";
   if (event.request.url.indexOf(base_url) > -1) {
     event.respondWith(
       caches.open(CACHE_NAME).then(function(cache) {
