@@ -114,7 +114,7 @@ function getKlasemen() {
     })
   }
 
-  fetch(base_url + '/standings', {
+  fetch(base_url + 'standings', {
     headers: {
       'X-Auth-Token': 'f2840543f4614bb7b9fcdc907b177975'
     },
