@@ -1,4 +1,4 @@
-const base_url = "http://api.football-data.org/v2/competitions/2021/";
+const base_url = "https://api.football-data.org/v2/competitions/2021/";
 
 // Blok kode yang akan di panggil jika fetch berhasil
 function status(response) {
