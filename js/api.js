@@ -79,7 +79,7 @@ function getAbout() {
 
 function getKlasemen() {
   if ('caches' in window) {
-    caches.match(base_url + 'standings').then(function(response) {
+    caches.match(base_url + '/standings').then(function(response) {
       if (response) {
         response.json().then(function (data) {
           let klasemenHTML = `
@@ -114,7 +114,7 @@ function getKlasemen() {
     })
   }
 
-  fetch(base_url + 'standings', {
+  fetch(base_url + '/standings', {
     headers: {
       'X-Auth-Token': 'f2840543f4614bb7b9fcdc907b177975'
     },
